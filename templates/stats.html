@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Pixelify+Sans">
+</head>
+
+<body style="background-color: #F4DFB6;">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #D6D46D; box-shadow: 3px 3px gray;">
+    <a class="navbar-brand" href="#" style="font-family: 'Pixelify Sans';">OldSkoolTools</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" style="font-family: 'Pixelify Sans';">Stats <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="economy" style="font-family: 'Pixelify Sans';">Economy</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="font-family: 'Pixelify Sans';">Player Information</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="text-center" style="margin-top: 5%;">
+    <div class="container px-4 text-center">
+      {% set skills = {
+        'combat': ['attack', 'defence', 'strength', 'hitpoints', 'ranged'],
+        'miscellaneous': ['prayer', 'magic', 'cooking', 'woodcutting', 'fletching'],
+        'gathering': ['fishing', 'firemaking', 'crafting', 'smithing', 'mining'],
+        'support': ['herblore', 'agility', 'thieving', 'slayer', 'farming'],
+        'artisan': ['runecrafting', 'hunter', 'construction']
+      } %}
+      
+      {% for category, skill_list in skills.items() %}
+        <div class="row gx-5">
+          {% for skill in skill_list %}
+            <div class="col">
+              <div class="card border-dark mb-3" style="max-width: 18rem;">
+                <div class="card-header bg-dark text-white" style="font-family: 'Pixelify Sans';">{{data[skill].skill_name}}</div>
+                <div class="card-body text-dark" style="background-color: #E1C78F;">
+                  <img src={{data2[skill]}} alt="combat" style="image-rendering: pixelated;" width="100" height="100">
+                  <div class="p-3" style="font-family: 'Pixelify Sans';">Level: {{data[skill].level}}</div>
+                  <div class="p-3" style="font-family: 'Pixelify Sans';">XP: {{data[skill].xp}}</div>
+                  <div class="p-3" style="font-family: 'Pixelify Sans';">Rank: {{data[skill].rank}}</div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+    
+
+  </div>
+</body>
+
+</html>

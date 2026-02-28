@@ -1,0 +1,7 @@
+python-osrsapi
+requests
+flask
+Flask-Babel
+pytest
+pytest-cov
+plotly
